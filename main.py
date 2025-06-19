@@ -18,7 +18,7 @@ def send_log():
         "platform": platform.platform()
     }
     try:
-        response = requests.post("http://localhost/jcp/logs/log-kaydet.php", data=data)
+        response = requests.post("http://localhost/jcp/Log-Tracking-System/logs/log-kaydet.php", data=data)
         print("🔒", response.text)
     except Exception as e:
         print("❌ Log gönderilemedi:", e)
@@ -29,7 +29,7 @@ def create_web_user():
     username = input("Yeni kullanıcı adı: ")
     password = input("Yeni kullanıcı şifresi: ")
     try:
-        response = requests.post("http://localhost/jcp/login/add-user.php", data={
+        response = requests.post("http://localhost/jcp/Log-Tracking-System/login/add-user.php", data={
             "username": username,
             "password": password
         })
@@ -45,7 +45,7 @@ def create_web_user():
 def view_logs():
     try:
         print("🔍 Log görüntüleyici açılıyor...")
-        os.system("start http://localhost/jcp/logs/admin-panel.php")
+        os.system("start http://localhost/jcp/Log-Tracking-System/logs/admin-panel.php")
     except:
         print("❌ Logları açamadım.")
 
@@ -53,11 +53,11 @@ def view_logs():
 
 def admin_giris():
     max_hak = 3
-    dogru_sifre = "admin123"
+    dogru_sifre = "jcp123"
     hak = 0
 
     while hak < max_hak:
-        sifre = input("🔐 Admin şifresi (gizlenmiyor): ")
+        sifre = input("🔐 Admin şifresi: ")
         if sifre == dogru_sifre:
             print("\n✅ Giriş Başarılı")
             while True:
