@@ -2,7 +2,7 @@
 echo [*] Eski exe temizleniyor...
 rmdir /s /q dist
 rmdir /s /q build
-del cmd_menu.spec
+del main.spec
 echo [*] .exe oluşturuluyor...
-pyinstaller --onefile cmd_menu.py
+pyinstaller --onefile main.py
 pause
